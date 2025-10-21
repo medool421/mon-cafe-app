@@ -4,7 +4,7 @@ import React from "react";
 export default function Index() {
   return (
     <View>
-      <Text>Inpm start ndex</Text>
+      <Text>Index</Text>
     </View>
   );
 }
