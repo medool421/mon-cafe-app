@@ -1,11 +1,25 @@
-import React from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { Link } from 'expo-router';
+import React from "react";
+import {ImageBackground} from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { useFonts, Jaro_400Regular } from '@expo-google-fonts/jaro';
+import RootLayout from './_layout';
 
-export default function Page() {
+
+export default function Home() {
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>مرحبا في متجر قهوتي</Text>
+
+
+    <>
+    <StatusBar style="light"  />
+          <ImageBackground source={require('../assets/BrewTime.webp')} resizeMode="fill" style={{flex: 1, width: '100%', height: '100%',}}>
+
+              <View style={{ marginTop: 490}}>
+              <Text style={{color: '#fff5ec', textAlign: "center", margin: 45, fontFamily: "Jaro_400Regular" ,fontSize:29,  textShadowColor: "black",textShadowOffset: { width: -2, height: 2 },textShadowRadius: 2}}>Fuel your passion. Master your brew. Experience coffee like never before with BrewTime.</Text>
+              </View>
+                <View style={styles.container}>
 
       <Link href="/about" asChild>
         <Pressable style={styles.button}>
@@ -13,9 +27,16 @@ export default function Page() {
         </Pressable>
       </Link>
     </View>
-  );
-}
+          </ImageBackground>
+          
 
+        </>
+
+
+  )
+
+ 
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
