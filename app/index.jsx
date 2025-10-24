@@ -1,49 +1,68 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import { useRouter } from "expo-router";
+import { View, Text, Pressable, StyleSheet } from 'react-native';
+import { Link } from 'expo-router';
+import React from "react";
+import {ImageBackground} from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import RootLayout from "./_layout";
+import { LinearGradient } from 'expo-linear-gradient';
 
-export default function Index() {
-  const router = useRouter();
-  const goToMenu = () => {
-    router.push("/menu");
-  };
+
+
+export default function Home() {
+
   return (
-    <View>
-      <Text>Index expo</Text>
-      {/* Bouton Principal : Voir le Menu */}
-      <TouchableOpacity style={styles.menuButton} onPress={goToMenu}>
-        <Text style={styles.menuButtonText}>Voir le Menu</Text>
-        <Text style={styles.menuButtonArrow}>➡️</Text>
-      </TouchableOpacity>
-    </View>
-  );
-}
 
+
+    <>
+    <StatusBar style="light"  />
+          <ImageBackground source={require('../assets/BrewTime.webp')} resizeMode="fill" style={{flex: 1, width: '100%', height: '100%',}}>
+
+              <View style={{ marginTop: 490}}>
+              <Text style={{color: '#fff5ec', textAlign: "center", margin: 45, fontFamily: "Jaro_400Regular" ,fontSize:29,  textShadowColor: "black",textShadowOffset: { width: -2, height: 2 },textShadowRadius: 2}}>Fuel your passion. Master your brew. Experience coffee like never before with BrewTime.</Text>
+              </View>
+              <View style={styles.container}>
+
+      <Link href="/about" asChild>
+        <Pressable>
+             <LinearGradient
+                colors={['#CB7D2F', '#653E17']}
+                start={{ x: 0, y: 0.5 }}
+                end={{ x: 1, y: 0.5 }}
+                style={styles.button}
+              >
+                <Text style={styles.buttonText}>Go to Menu   ➔</Text>
+              </LinearGradient>
+        </Pressable>
+      </Link>
+    </View>
+          </ImageBackground>
+          
+
+        </>
+
+
+  )
+
+ 
+}
 const styles = StyleSheet.create({
-  // Bouton Menu Principal
-  menuButton: {
-    backgroundColor: "#a35905ff",
-    margin: 20,
-    marginTop: 0,
-    padding: 18,
-    borderRadius: 15,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 5,
-    elevation: 5,
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+
   },
-  menuButtonText: {
-    color: "white",
-    fontSize: 18,
-    fontWeight: "bold",
-    marginRight: 10,
+  button: {
+    paddingVertical: 7,
+    paddingHorizontal: 25,
+    borderRadius: 19,
+     borderWidth: 3,
+    borderColor: 'white',
   },
-  menuButtonArrow: {
-    color: "white",
-    fontSize: 24,
-    fontWeight: "bold",
+  buttonText: {
+    color: 'white',
+    fontSize: 26,
+    fontFamily: "Jaro_400Regular"
   },
 });
