@@ -1,68 +1,78 @@
-import { View, Text, Pressable, StyleSheet } from 'react-native';
-import { Link } from 'expo-router';
+import { View, Text, Pressable, StyleSheet } from "react-native";
+import { Link } from "expo-router";
 import React from "react";
-import {ImageBackground} from 'react-native';
+import { ImageBackground } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import RootLayout from "./_layout";
-import { LinearGradient } from 'expo-linear-gradient';
-
-
+import { LinearGradient } from "expo-linear-gradient";
+import { Dimensions } from "react-native";
 
 export default function Home() {
-
   return (
-
-
     <>
-    <StatusBar style="light"  />
-          <ImageBackground source={require('../assets/BrewTime.webp')} resizeMode="fill" style={{flex: 1, width: '100%', height: '100%',}}>
-
-              <View style={{ marginTop: 490}}>
-              <Text style={{color: '#fff5ec', textAlign: "center", margin: 45, fontFamily: "Jaro_400Regular" ,fontSize:29,  textShadowColor: "black",textShadowOffset: { width: -2, height: 2 },textShadowRadius: 2}}>Fuel your passion. Master your brew. Experience coffee like never before with BrewTime.</Text>
-              </View>
-              <View style={styles.container}>
-
-      <Link href="/about" asChild>
-        <Pressable>
-             <LinearGradient
-                colors={['#CB7D2F', '#653E17']}
+      <StatusBar style="light" />
+      <ImageBackground
+        source={require("../assets/BrewTime.webp")}
+        resizeMode="fill"
+        style={{ flex: 1, width: "100%", height: "100%" }}
+      >
+        <View style={{ marginTop: 490 }}>
+          <Text
+            style={{
+              color: "#fff5ec",
+              textAlign: "center",
+              margin: 45,
+              fontFamily: "Jaro_400Regular",
+              fontSize: 29,
+              textShadowColor: "black",
+              textShadowOffset: { width: -2, height: 2 },
+              textShadowRadius: 2,
+            }}
+          >
+            Fuel your passion. Master your brew. Experience coffee like never
+            before with BrewTime.
+          </Text>
+        </View>
+        <View style={styles.container}>
+          <Link href="/menu" asChild>
+            <Pressable>
+              <LinearGradient
+                colors={["#CB7D2F", "#653E17"]}
                 start={{ x: 0, y: 0.5 }}
                 end={{ x: 1, y: 0.5 }}
                 style={styles.button}
               >
-                <Text style={styles.buttonText}>Go to Menu   ➔</Text>
+                <Text style={styles.buttonText}>Go to Menu ➔</Text>
               </LinearGradient>
-        </Pressable>
-      </Link>
-    </View>
-          </ImageBackground>
-          
-
-        </>
-
-
-  )
-
- 
+            </Pressable>
+          </Link>
+        </View>
+      </ImageBackground>
+    </>
+  );
 }
+
+const { width, height } = Dimensions.get("window");
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
+    width: width * 0.9, // 90% de la largeur de l'écran
+    height: height * 0.1, // 10% de la hauteur de l'écran
     padding: 20,
-
   },
   button: {
     paddingVertical: 7,
     paddingHorizontal: 25,
     borderRadius: 19,
-     borderWidth: 3,
-    borderColor: 'white',
+    borderWidth: 3,
+    borderColor: "white",
+    // marginBottom: 50,
   },
   buttonText: {
-    color: 'white',
+    color: "white",
     fontSize: 26,
-    fontFamily: "Jaro_400Regular"
+    fontFamily: "Jaro_400Regular",
   },
 });
