@@ -3,8 +3,9 @@ import { Link } from 'expo-router';
 import React from "react";
 import {ImageBackground} from 'react-native';
 import { StatusBar } from "expo-status-bar";
-import { useFonts, Jaro_400Regular } from '@expo-google-fonts/jaro';
-import RootLayout from './_layout';
+import RootLayout from "./_layout";
+import { LinearGradient } from 'expo-linear-gradient';
+
 
 
 export default function Home() {
@@ -19,11 +20,18 @@ export default function Home() {
               <View style={{ marginTop: 490}}>
               <Text style={{color: '#fff5ec', textAlign: "center", margin: 45, fontFamily: "Jaro_400Regular" ,fontSize:29,  textShadowColor: "black",textShadowOffset: { width: -2, height: 2 },textShadowRadius: 2}}>Fuel your passion. Master your brew. Experience coffee like never before with BrewTime.</Text>
               </View>
-                <View style={styles.container}>
+              <View style={styles.container}>
 
       <Link href="/about" asChild>
-        <Pressable style={styles.button}>
-          <Text style={styles.buttonText}>Go to Menu ➔ </Text>
+        <Pressable>
+             <LinearGradient
+                colors={['#CB7D2F', '#653E17']}
+                start={{ x: 0, y: 0.5 }}
+                end={{ x: 1, y: 0.5 }}
+                style={styles.button}
+              >
+                <Text style={styles.buttonText}>Go to Menu   ➔</Text>
+              </LinearGradient>
         </Pressable>
       </Link>
     </View>
@@ -45,20 +53,16 @@ const styles = StyleSheet.create({
     padding: 20,
 
   },
-  title: {
-    fontSize: 24,
-    marginBottom: 20,
-  },
   button: {
-    backgroundColor: '#CB7D2F',
-    paddingVertical: 12,
-    paddingHorizontal: 20,
-    borderRadius: 16,
+    paddingVertical: 7,
+    paddingHorizontal: 25,
+    borderRadius: 19,
      borderWidth: 3,
     borderColor: 'white',
   },
   buttonText: {
     color: 'white',
-    fontSize: 16,
+    fontSize: 26,
+    fontFamily: "Jaro_400Regular"
   },
 });
