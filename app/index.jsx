@@ -2,7 +2,6 @@ import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { Link } from 'expo-router';
 import React from "react";
 import {ImageBackground} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import { StatusBar } from "expo-status-bar";
 import RootLayout from "./_layout";
 import { LinearGradient } from 'expo-linear-gradient';
@@ -12,6 +11,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 export default function Home() {
 
   return (
+
 
     <>
     <StatusBar style="light"  />
@@ -42,7 +42,6 @@ export default function Home() {
 
 
   )
-
 
  
 }
