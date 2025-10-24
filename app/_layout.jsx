@@ -1,13 +1,35 @@
 import { Stack } from "expo-router";
-import * as SplashScreen from "expo-splash-screen";
-import { useEffect } from "react";
 
-SplashScreen.preventAutoHideAsync();
+export default function Layout() {
+  return (
+    <Stack
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "#a35905ff", // Couleur orange/ambre
+        },
+        headerTintColor: "#fff", // Couleur du texte
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+      }}
+    >
+      {/* Écran d'accueil */}
+      <Stack.Screen
+        name="index"
+        options={{
+          title: "BrewTime Coffee",
+          headerShown: false,
+        }}
+      />
 
-export default function RootLayout() {
-  useEffect(() => {
-    SplashScreen.hide();
-  }, []);
-
-  return <Stack />;
+      {/* Écran menu */}
+      <Stack.Screen
+        name="menu"
+        options={{
+          title: "Notre Menu",
+          headerShown: false,
+        }}
+      />
+    </Stack>
+  );
 }
