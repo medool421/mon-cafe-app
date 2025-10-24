@@ -22,7 +22,7 @@ export default function Home() {
               </View>
               <View style={styles.container}>
 
-      <Link href="/about" asChild>
+      <Link href="/menu" asChild>
         <Pressable>
              <LinearGradient
                 colors={['#CB7D2F', '#653E17']}

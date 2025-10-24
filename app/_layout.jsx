@@ -4,10 +4,8 @@ import { useEffect } from 'react';
 import { useFonts, Jaro_400Regular } from '@expo-google-fonts/jaro';
 
 
-SplashScreen.preventAutoHideAsync();
-
-export default function RootLayout() {
-  const [fontsLoaded] = useFonts({Jaro_400Regular,});
+export default function Layout() {
+   const [fontsLoaded] = useFonts({Jaro_400Regular,});
   
 
   useEffect(() => {
@@ -19,10 +17,36 @@ export default function RootLayout() {
   if (!fontsLoaded) {
     return null;
   }
+  return (
+    <Stack
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "#122527", // Couleur orange/ambre
+        },
+        headerTintColor: "#fff", // Couleur du texte
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+      }}
+    >
+      {/* Écran d'accueil */}
+      <Stack.Screen
+        name="index"
+        options={{
+          title: "BrewTime Coffee",
+          headerShown: false,
+        }}
+      />
 
-   return (
-    <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="index" />
+      {/* Écran menu */}
+      <Stack.Screen
+        name="menu"
+        options={{
+          title: "Notre Menu",
+          headerShown: false,
+        }}
+      />
     </Stack>
   );
 }
+
