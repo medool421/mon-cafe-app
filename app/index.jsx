@@ -1,18 +1,12 @@
-import { View, Text, Pressable, StyleSheet } from 'react-native';
-import { Link } from 'expo-router';
+import { View, Text, Pressable, StyleSheet } from "react-native";
+import { Link } from "expo-router";
 import React from "react";
-import {ImageBackground} from 'react-native';
+import { ImageBackground } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import RootLayout from "./_layout";
-import { LinearGradient } from 'expo-linear-gradient';
-
-
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function Home() {
-
   return (
-
-
     <>
     <StatusBar style="light"  />
           <ImageBackground source={require('../assets/BrewTime.webp')} resizeMode="fill" style={{flex: 1, width: '100%', height: '100%',}}>
@@ -30,39 +24,35 @@ export default function Home() {
                 end={{ x: 1, y: 0.5 }}
                 style={styles.button}
               >
-                <Text style={styles.buttonText}>Go to Menu   ➔</Text>
+                <Text style={styles.buttonText}>Go to Menu ➔</Text>
               </LinearGradient>
-        </Pressable>
-      </Link>
-    </View>
-          </ImageBackground>
-          
-
-        </>
-
-
-  )
-
- 
+            </Pressable>
+          </Link>
+        </View>
+      </ImageBackground>
+    </>
+  );
 }
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     padding: 20,
-
   },
   button: {
     paddingVertical: 7,
     paddingHorizontal: 25,
     borderRadius: 19,
-     borderWidth: 3,
-    borderColor: 'white',
+    borderWidth: 3,
+    borderColor: "white",
+    // marginBottom: 50,
   },
   buttonText: {
-    color: 'white',
+    color: "white",
     fontSize: 26,
-    fontFamily: "Jaro_400Regular"
+    fontFamily: "Jaro_400Regular",
   },
 });

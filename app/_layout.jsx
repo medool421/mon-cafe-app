@@ -21,15 +21,15 @@ export default function Layout() {
     <Stack
       screenOptions={{
         headerStyle: {
-          backgroundColor: "#122527", // Couleur orange/ambre
+          backgroundColor: "#a35905ff",
         },
-        headerTintColor: "#fff", // Couleur du texte
+        headerTintColor: "#fff",
         headerTitleStyle: {
           fontWeight: "bold",
         },
       }}
     >
-      {/* Écran d'accueil */}
+
       <Stack.Screen
         name="index"
         options={{
@@ -38,12 +38,13 @@ export default function Layout() {
         }}
       />
 
-      {/* Écran menu */}
+
       <Stack.Screen
         name="menu"
         options={{
           title: "Notre Menu",
           headerShown: false,
+          
         }}
       />
     </Stack>

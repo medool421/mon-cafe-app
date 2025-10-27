@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { Ionicons } from "@expo/vector-icons";
+import { useFonts, Jaro_400Regular } from '@expo-google-fonts/jaro';
+
 import {
   View,
   Text,
@@ -10,8 +13,16 @@ import {
 import { useRouter } from "expo-router";
 
 export default function PremiumMenuScreen() {
+  const [fontsLoaded] = useFonts({Jaro_400Regular,});
+  
   const [selectedCategory, setSelectedCategory] = useState("all");
   const router = useRouter();
+
+  if (!fontsLoaded) {
+     return null;
+   }
+
+
 
   // Liste des boissons
   const menuItems = [
@@ -103,7 +114,7 @@ export default function PremiumMenuScreen() {
           style={styles.backButton}
           onPress={() => router.back()}
         >
-          <Text style={styles.backIcon}>🔙</Text>
+          <Ionicons name="arrow-back" size={24} color="white" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Notre Menu</Text>
         <View style={styles.placeholder} />
@@ -257,8 +268,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#FEF3C7",
+    // fontFamily: "Jaro_400Regular",
   },
   header: {
+    // fontFamily: "Jaro_400Regular",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -274,16 +287,24 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(255,255,255,0.2)",
     alignItems: "center",
     justifyContent: "center",
+    alignItems: "center",
+    justifyContent: "center",
   },
   backIcon: {
-    fontSize: 24,
+    fontSize: 40,
     color: "white",
     fontWeight: "bold",
+    textAlign: "center",
+    lineHeight: 26,
   },
   headerTitle: {
-    fontSize: 22,
-    fontWeight: "bold",
-    color: "white",
+    fontFamily: "Jaro_400Regular",
+    fontSize: 29,
+    color: "#fff5ec",
+    textShadowColor: "black",
+    textShadowOffset: { width: -2, height: 2 },
+    textShadowRadius: 2,
+
   },
   placeholder: {
     width: 40,
